@@ -78,29 +78,29 @@ public class Plane
 	 */
 	public void init()
 	{
-		Reservation förstaKlass = new Reservation(Constants.FÖRSTAKLASSPRIS, "Första klass"); //Creates 2 price classes 
-		Reservation ekonomiKlass = new Reservation(Constants.EKONOMIKLASSPRIS, "Ekonomi klass");
-		förstaKlass.mat.add(new Food("Ingen", 0));
-		förstaKlass.mat.add(new Food("Kött 1", 170));
-		förstaKlass.mat.add(new Food("Kött 2", 170));
-		förstaKlass.mat.add(new Food("Fisk 1", 180));
-		förstaKlass.mat.add(new Food("Vegetarisk 1", 180));
-		ekonomiKlass.mat.add(new Food("Ingen", 0));
-		ekonomiKlass.mat.add(new Food("Kött 1", 110));
-		ekonomiKlass.mat.add(new Food("Kött 2", 120));
-		ekonomiKlass.mat.add(new Food("Fisk 1", 130));
-		ekonomiKlass.mat.add(new Food("Vegetarisk 1", 130));
-		reservation.add(förstaKlass); //Adds the classes to the reservation
-		reservation.add(ekonomiKlass);
+		Reservation firstClass = new Reservation(Constants.FIRSTCLASSPRICE, "First class"); //Creates 2 price classes 
+		Reservation economyClass = new Reservation(Constants.ECONOMYCLASSPRICE, "Economy class");
+		firstClass.mat.add(new Food("None", 0));
+		firstClass.mat.add(new Food("Meat 1", 170));
+		firstClass.mat.add(new Food("Meat 2", 170));
+		firstClass.mat.add(new Food("Fish 1", 180));
+		firstClass.mat.add(new Food("Vegeterian 1", 180));
+		economyClass.mat.add(new Food("None", 0));
+		economyClass.mat.add(new Food("Meat 1", 110));
+		economyClass.mat.add(new Food("Meat 2", 120));
+		economyClass.mat.add(new Food("Fish 1", 130));
+		economyClass.mat.add(new Food("Vegeterian 1", 130));
+		reservation.add(firstClass); //Adds the classes to the reservation
+		reservation.add(economyClass);
 		customer.add(new Customer("Anna", "Petterson")); //Just a bunch of random names that can be used later to add to the plane.
 		customer.add(new Customer("Peter", "Andersson"));
 		customer.add(new Customer("Sanna", "Johnsson"));
-		customer.add(new Customer("Ingemar", "Ström"));
+		customer.add(new Customer("Ingemar", "Stream"));
 		customer.add(new Customer("Sofia", "Zetterlund"));
 		customer.add(new Customer("Jonas", "Lund"));
 		customer.add(new Customer("Jasmine", "Gustafsson"));
 		customer.add(new Customer("Mohammed", "Lee"));
-		customer.add(new Customer("Josefine", "Göransdotter"));
+		customer.add(new Customer("Josefine", "Goransdotter"));
 		customer.add(new Customer("Petter", "Svensson"));
 	}
 
@@ -154,7 +154,7 @@ public class Plane
 			tmpFood = tmpReserv.mat.get(choice);
 			profit += 0.3 * (tmpReserv.getPrice() + tmpFood.getPrice());
 			choice = rnd.nextInt(customer.size());
-			tmpReserv.säte.add(new Seat(tmpReserv.säte.size() + modifier, customer.get(choice)));
+			tmpReserv.seats.add(new Seat(tmpReserv.seats.size() + modifier, customer.get(choice)));
 			seatsLeft--;
 			tmpReserv.setSeatsLeft(tmpReserv.getSeatsLeft() - 1);
 			if (tmpReserv.getSeatsLeft() == 0)
