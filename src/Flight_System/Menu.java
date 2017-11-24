@@ -161,7 +161,7 @@ public class Menu
 				choice = scanner.betterScanInt(0, reserv.mat.size());
 				tmpFood = reserv.mat.get(choice);
 				plane.setTotalPrice(plane.getTotalPrice() + tmpFood.getPrice());
-				reserv.säte.add(new Seat(Constants.SEATSFOREVERYCLASS - reserv.getSeatsLeft(), customer));
+				reserv.seats.add(new Seat(Constants.SEATSFOREVERYCLASS - reserv.getSeatsLeft(), customer));
 				reserv.setSeatsLeft(reserv.getSeatsLeft() - 1);
 				break;
 			case 2:
@@ -216,7 +216,7 @@ public class Menu
 				for (int i = 0; i < choice; i++)
 				{
 					planeCount++;
-					sb.replace(6, 7, planeCount.toString());
+					sb.replace(6, 8, planeCount.toString());
 					planes.add(new Plane(sb.toString()));
 					threads.add(new ThreadSystem(planes.get(planeCount - 1)));
 				}
@@ -247,6 +247,11 @@ public class Menu
 				printPlaneList();
 				break;
 			case 6: //Run plane simulation (no graphics)
+				if (planeCount == 0)
+				{
+					System.out.println("There is no planes to simulate");
+					continue;
+				}
 				for (ThreadSystem threadSystem : threads)
 				{
 					threadSystem.start();
@@ -256,6 +261,11 @@ public class Menu
 				planeCount = 0;
 				break;
 			case 7: // Run plane simulation (with graphics)
+				if (planeCount == 0)
+				{
+					System.out.println("There is no planes to simulate");
+					continue;
+				}
 				for (ThreadSystem threadSystem : threads)
 				{
 					threadSystem.start();
