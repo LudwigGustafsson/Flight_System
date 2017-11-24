@@ -12,7 +12,7 @@ public class Reservation
 	ArrayList<Food> mat;
 	private int price;
 	private String classType;
-	ArrayList<Seat> säte = new ArrayList<Seat>();
+	ArrayList<Seat> seats = new ArrayList<Seat>();
 	private int SeatsLeft;
 
 	public Reservation(int price, String classType)
@@ -45,11 +45,11 @@ public class Reservation
 	 */
 	public void printSub()
 	{
-		for (Seat seat : säte)
+		for (Seat seat : seats)
 		{
 			System.out.println(seat);
 		}
-		for (int i = säte.size(); i < Constants.SEATSFOREVERYCLASS; i++)
+		for (int i = seats.size(); i < Constants.SEATSFOREVERYCLASS; i++)
 		{
 			System.out.println("Seat " + i + " vacant");
 		}
